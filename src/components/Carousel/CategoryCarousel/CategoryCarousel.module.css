@@ -1,0 +1,11 @@
+.slider_container{
+    height: 400px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 100% 40%;
+    padding-top:100px;
+}
+.slider_container button:nth-child(1){
+    margin-left: auto;
+    right: 100px;
+}

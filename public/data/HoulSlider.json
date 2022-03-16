@@ -1,0 +1,27 @@
+[
+    {
+        "id": "1",
+      "imageSrc": "/img/room1.png"
+     
+      
+    },
+    {
+        "id": "2",
+      "imageSrc": "/img/room2.png"
+   
+      
+    },
+    {
+        "id": "3",
+      "imageSrc":"/img/room3.png"
+     
+      
+    },
+    {
+        "id": "4",
+      "imageSrc": "/img/room1.png"
+     
+      
+    }
+  ]
+   

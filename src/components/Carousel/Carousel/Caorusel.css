@@ -1,0 +1,30 @@
+.slider-content{
+    height:auto;
+    background-color:rgba(255,255,255,.6);
+    padding:35px;
+}
+ button.slick-arrow.slick-prev::before{
+    content:url(../../../../public/img/arrow-left.svg);
+}
+button.slick-arrow.slick-next::before{
+    content:url(../../../../public/img/arrow-right.svg);
+}
+button.slick-arrow::before{
+    position:absolute;
+    transform: none;
+    position: absolute;
+    z-index: 99;
+    opacity: 1;
+}
+button.slick-arrow.slick-prev{
+    left: 90px;
+    position:absolute;
+    transform: none;
+    position: absolute;
+    z-index: 99;
+    opacity: 1;
+    
+}
+button.slick-arrow.slick-next{
+    right: 90px;
+}

@@ -1,0 +1,50 @@
+ul li {
+    font-family: 'Spartan';
+    font-weight:700;
+    color:black;
+}
+.menu_link{
+    max-width: 500px;
+    width: 100%;
+    margin: 0px 35px;
+}
+.menu_toggle_link{
+    max-width: 500px;
+    width: 100%;
+    margin: 0px 35px;
+}
+.menu_link li a, .menu_toggle_link li a{
+
+    color:black;
+    text-align: left;
+}
+
+
+.search_container input{
+    border-radius: none;
+    border:none;
+    border-bottom: 1px solid black;
+
+}
+.search_container::before {
+  content:url(../../assets/img/search.png);
+  display: block;
+  height: 22px;
+  width:22px;
+  position: absolute;
+  margin-right: 3px;
+  z-index: 9;
+  margin-top: 5px;
+  right:0;
+}
+.toggle_btn{
+    color:black;
+}
+.close_btn{
+    position: absolute;
+    top: 0;
+    left: 15px;
+    opacity: 1;
+    color: black;
+    cursor:pointer;
+}
