@@ -1,0 +1,66 @@
+.total_amount_container {
+    font-family: 'Spartan';
+}
+
+.inner_container::after {
+    height: 2px;
+    background: black;
+    width: 100%;
+    content: '';
+    display: block;
+}
+
+.total_amount_container h3 {
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.total_amount_container {
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 40px;
+
+}
+
+.btn_container a {
+    text-transform: none;
+    font-family: 'Spartan';
+}
+
+a.btnClose {
+    color: black;
+}
+
+a.btnReturn {
+    color: white;
+    background: black;
+    border-radius: 0px;
+    border: 1px solid black;
+    padding: 5px 25px;
+}
+
+a.btnReturn:hover {
+    color: black;
+}
+
+.btnClose::before {
+    content: url(../../assets/img/arrow-left.svg);
+    margin-right: 15px;
+}
+
+.cart_list_container {
+    list-style: none;
+    overflow-y: scroll;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 0px;
+
+}
+
+.cart_text {
+    font-style: italic;
+    text-align: center;
+}

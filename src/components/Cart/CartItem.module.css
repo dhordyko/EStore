@@ -1,0 +1,9 @@
+.remove_icon {
+    cursor: pointer;
+}
+
+.title,
+.amount {
+    font-weight: 400;
+    margin: 0px;
+}

@@ -1,0 +1,72 @@
+.filter_list {
+    list-style: none;
+}
+
+.filter_item a {
+    text-decoration: none;
+}
+
+.filter_container_title {
+    font-weight: 700;
+    font-size: 16px;
+    border-bottom: 1.5px solid black;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.component_container {
+    font-family: 'Spartan';
+    padding-top: 100px;
+}
+
+.filter_tags {
+    font-size: 14px;
+}
+
+.filter_tags .close-btn {
+    cursor: pointer;
+}
+
+div[id*="Accordion-"].accordion button {
+    text-transform: capitalize;
+    color: black;
+    font-weight: 500;
+    background: transparent;
+    border-bottom: 1px solid black;
+    box-shadow: none !important;
+    border-radius: 0px !important;
+}
+
+.accordion div[class="accordion-item"] {
+    border: none
+}
+
+
+.accordion button:not(.collapsed)::after {
+    background-image: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27 fill=%27%23212529%27%3e%3cpath fill-rule=%27evenodd%27 d=%27M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z%27/%3e%3c/svg%3e')
+}
+
+div[id*="Accordion-"].accordion ul {
+    padding: 0px;
+    font-size: 14px;
+
+}
+
+.accordion ul li {
+    margin: 15px 0px;
+}
+
+.accordion ul li a {
+    color: black;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+div[id*="Accordion-"].accordion .price_slider {
+    color: black;
+}
+
+div[id*="Accordion-"].accordion .price_slider span[data-index] {
+    width: 18px;
+    height: 18px;
+}

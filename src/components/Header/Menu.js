@@ -8,12 +8,12 @@ import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import IconButton from '@mui/material/IconButton';
+import CartButton from '../Cart/CartBtn';
 import MenuIcon from '@mui/icons-material/Menu';
 import mainLogo from '../../assets/img/logo.png';
 import accountItem from '../../assets/img/man.svg';
-import cartItem from '../../assets/img/cart.png';
 import classes from "./Menu.module.css";
-import Module from '../../Modal'
+import Module from '../../Modal';
 const drawerWidth = 240;
 const Menu = (props) => {
     const [open, setOpen] = useState(false);
@@ -67,7 +67,7 @@ const Menu = (props) => {
                     </form>
                     <div className="icons-container d-xl-block d-none">
                         <img src={accountItem} className="me-4" />
-                        <img src={cartItem} />
+                        <CartButton showCart={props.showCart} />
                     </div>
 
 
@@ -120,7 +120,7 @@ const Menu = (props) => {
                     </form>
                     <div className="icons-container">
                         <img src={accountItem} className="me-4" />
-                        <img src={cartItem} />
+                        <CartButton onClick={props.showCart} />
                     </div>
 
 

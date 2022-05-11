@@ -1,0 +1,32 @@
+.slider_container{
+    height: 400px;
+  
+    padding-top:100px;
+}
+
+.slider_container button:nth-child(1){
+    margin-left: auto;
+    right: 100px;
+}
+
+.slider_outer_container div{
+    height:400px;
+    display: flex;
+    align-items: flex-end;
+}
+.header_title{
+    position:absolute;
+    font-family: 'Spartan';
+    font-weight:400;
+}
+.slider_outer_container div a{
+    height:38px;
+    width:180px;
+    border:1px solid black;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration: none;
+    color:black;
+    background-color: rgba(255,255,255,.7);
+}

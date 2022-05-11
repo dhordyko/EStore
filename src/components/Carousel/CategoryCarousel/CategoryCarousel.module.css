@@ -4,8 +4,14 @@
     background-size: cover;
     background-position: 100% 40%;
     padding-top:100px;
+    margin-bottom:100px;
 }
 .slider_container button:nth-child(1){
     margin-left: auto;
     right: 100px;
+}
+.header_title{
+    position:absolute;
+    font-family: 'Spartan';
+    font-weight:400;
 }

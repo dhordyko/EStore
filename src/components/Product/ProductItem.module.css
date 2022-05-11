@@ -1,0 +1,64 @@
+.img_container {
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 260px;
+    background-position: center;
+}
+
+.img_container a {
+    text-decoration: none;
+    color: black
+}
+
+.badge {
+    text-align: center;
+    padding: 3px 5px;
+    background: red;
+    margin-top: 5px;
+    margin-left: 10px;
+    color: white;
+    font-size: 13px;
+    display: block;
+    float: left;
+    width: 150px;
+    position: absolute;
+}
+
+.product_outer_container {
+    font-family: 'Spartan';
+}
+
+.product_description a {
+    text-decoration: none;
+    color: black
+}
+
+.product_description a:hover {
+    color: black
+}
+
+.product_desc1 {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0px;
+}
+
+.product_desc1 span:nth-of-type(2) {
+    font-weight: 800;
+}
+
+.overlay {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, .5);
+    transition: ease-in-out .6s;
+}
+
+.overlay a {
+    background: #E1CDB9;
+    padding: 10px 15px;
+    cursor: pointer;
+}

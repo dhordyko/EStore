@@ -1,0 +1,149 @@
+.option_img_container ul {
+    list-style: none;
+    padding: 0px;
+}
+
+.option_img_container ul li {
+    cursor: pointer;
+}
+
+.main_image_container {
+    margin-left: 20px;
+}
+
+.main_image_container img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.product_descr_container {
+    border: 1px solid black;
+    padding: 20px;
+    display: flex;
+    margin: 50px 0px;
+}
+
+.product_descr_container p {
+    padding: 0px 35px;
+}
+
+.product_descr_container button {
+    width: auto;
+    min-width: 225px;
+    background: #DCC5AD;
+    height: 50px;
+    border-radius: 0px;
+    margin: 0px 30px;
+    color: black;
+}
+
+.tab_links_container .tab_links {
+    height: 50px;
+    align-items: end;
+    border-bottom: 1px solid black;
+    margin: 50px 0px;
+}
+
+.tab_links_container .tab_links>div {
+    height: 35px;
+    margin-right: 65px;
+    cursor: pointer;
+}
+
+.border_bold {
+    font-weight: 800;
+    border-bottom: 2px solid black;
+}
+
+div[id="product-description"] table td:nth-of-type(1) {
+    width: 163px;
+    border-right: 2px solid white;
+}
+
+div[id="product-description"] table tr {
+    border: 2px solid white;
+}
+
+div[id="product-description"] table tr:nth-of-type(odd) {
+    background-color: #EBEBEB;
+}
+
+div[id="product-description"] table tr:nth-of-type(even) {
+    background-color: #E1CDB9;
+}
+
+div[id="product-description"] table td {
+    height: 50px;
+    font-size: 12px;
+    font-weight: 500;
+    padding-left: 15px;
+
+}
+
+div[id="product-description"] table td:nth-of-type(2) {
+    width: 360px
+}
+
+div[id="product-description"] {
+    margin-top: 100px
+}
+
+div[id="product-description"] .green_badge {
+    display: inline-flex;
+    padding: 0px 50px;
+    background: #67926780;
+    height: 35px;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 800;
+    border: 1px solid black;
+    margin-bottom: 60px;
+}
+
+.desc_title {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.desc_price {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.desc_text {
+    font-size: 12px;
+    display: block;
+    max-width: 550px;
+}
+
+.tab_description,
+.tab_table {
+    height: 270px;
+}
+
+.option_img_container ul li {
+    margin-bottom: 10px;
+}
+
+.option_img_container ul li:nth-last-of-type(1) {
+    margin-bottom: 0px !important;
+}
+
+.info_icons {
+    list-style: none;
+    padding: 0px;
+}
+
+.info_icons li {
+    margin-bottom: 27px;
+}
+
+.info_icons li>span {
+    margin-right: 10px;
+}
+
+.product_desc_container {
+    padding-left: 35px !important;
+}

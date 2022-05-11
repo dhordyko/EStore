@@ -1,0 +1,29 @@
+.title {
+    font-family: 'Spartan';
+    font-size: 24px;
+}
+
+.text {
+    font-family: 'Spartan';
+    font-size: 14px;
+}
+
+.blog_container {
+    position: relative
+}
+
+.badge_container {
+    position: absolute;
+    width: 100%;
+    text-align: right;
+    margin-top: 15px;
+}
+
+.badge {
+    width: 137px;
+    display: inline-block;
+    background-color: #E1CDB9;
+    text-align: center;
+    height: 25px;
+    margin: 0px 10px;
+}
