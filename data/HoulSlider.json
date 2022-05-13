@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "imageSrc": "/img/room1.png",
+    "category": "Kuchnia"
+  },
+  {
+    "id": "2",
+    "imageSrc": "/img/room2.png",
+    "category": "Salon"
+  },
+  {
+    "id": "3",
+    "imageSrc": "/img/room3.png",
+    "category": "Kuchnia"
+  },
+  {
+    "id": "4",
+    "imageSrc": "/img/room1.png",
+    "category": "Salon"
+  }
+]

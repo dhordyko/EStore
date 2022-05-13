@@ -1,0 +1,38 @@
+[
+    {
+        "id": "1",
+      "imageSrc": "/img/slide1.png",
+      "title": "Wnętrze ze smakiem",
+      "description": "Stwórz przestrzeń, która inspiruje. Odmień swój dom z gustlo.pl"
+      
+    },
+    {
+        "id": "2",
+      "imageSrc": "/img/slide2.png",
+      "title": "Wnętrze ze smakiem",
+      "description": "Stwórz przestrzeń, która inspiruje. Odmień swój dom z gustlo.pl"
+      
+    },
+    {
+        "id": "3",
+      "imageSrc":"/img/slide3.png",
+      "title": "Wnętrze ze smakiem",
+      "description": "Stwórz przestrzeń, która inspiruje. Odmień swój dom z gustlo.pl"
+      
+    },
+    {
+        "id": "4",
+      "imageSrc": "/img/slide1.png",
+      "title": "Wnętrze ze smakiem",
+      "description": "Stwórz przestrzeń, która inspiruje. Odmień swój dom z gustlo.pl"
+      
+    },
+    {
+        "id": "5",
+      "imageSrc": "/img/slide3.png",
+      "title": "Wnętrze ze smakiem",
+      "description": "./img/"
+    
+    }
+  ]
+   
