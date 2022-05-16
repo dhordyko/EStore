@@ -1,17 +1,27 @@
-.slider_container{
-    height: 400px;
+.slider_container {
+    height: auto;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 100% 40%;
-    padding-top:100px;
-    margin-bottom:100px;
+    padding-top: 70px;
 }
-.slider_container button:nth-child(1){
+
+.slider_container img {
+    min-height: 170px;
+}
+
+.slider_container button:nth-child(1) {
     margin-left: auto;
     right: 100px;
 }
-.header_title{
-    position:absolute;
+
+.header_title {
+    position: absolute;
     font-family: 'Spartan';
-    font-weight:400;
+    font-weight: 400;
+}
+
+.category_slider>div>div>div>div {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
 }

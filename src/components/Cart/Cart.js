@@ -28,10 +28,6 @@ const Cart = (props) => {
         </ul >
     )
 
-
-    console.log(cartCtx.items)
-
-
     return (
         <Fragment>
             <CartModal onClose={props.closeCart} className={`${classes.cart_container}`}>
@@ -44,9 +40,9 @@ const Cart = (props) => {
                             <span>{`${cartCtx.totalAmount} zł`}</span>
                         </div>
                     </div>
-                    <div className={`mt-5 pt-3 d-flex justify-content-end ${classes.btn_container}`}>
+                    <div className={`mt-5 pt-3 d-flex flex-sm-row flex-column justify-content-end ${classes.btn_container}`}>
                         <Button variant="text" href="#" onClick={props.closeCart} className={`me-5 ${classes.btnClose}`}>Wróć do sklepu</Button>
-                        <Button href="#" className={classes.btnReturn}>Przejdż do kasy</Button>
+                        <Button href="#" className={`${classes.btnReturn} m-sm-0 mt-2`}>Przejdż do kasy</Button>
                     </div>
                 </div>
             </CartModal>

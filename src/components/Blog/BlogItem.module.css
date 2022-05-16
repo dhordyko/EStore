@@ -21,9 +21,11 @@
 
 .badge {
     width: 137px;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background-color: #E1CDB9;
     text-align: center;
-    height: 25px;
+    height: 30px;
     margin: 0px 10px;
 }

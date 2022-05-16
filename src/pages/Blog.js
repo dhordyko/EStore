@@ -27,7 +27,7 @@ const Blog = () => {
 
             <div className="container-fluid my-5">
                 <div className="row">
-                    <div className="col-md-9 m-auto justify-content-center d-flex">
+                    <div className="col-md-9 m-auto justify-content-center d-flex flex-wrap">
                         {buttons.map((category) => (<CategoryButton category={category} />))}
                     </div>
                 </div>

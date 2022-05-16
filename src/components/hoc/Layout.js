@@ -8,6 +8,7 @@ const Layout = (props) => {
         setCartIsShown(false);
     }
     const cartShowhandler = () => {
+        console.log('sdfsdf')
         setCartIsShown(true);
     }
     return (

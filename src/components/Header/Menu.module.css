@@ -1,50 +1,97 @@
+.submenu {
+    position: absolute;
+    background: white;
+    z-index: 99;
+    padding: 35px;
+    list-style: none;
+    padding: 20px 55px 10px 25px;
+    border: 1px solid black;
+}
+
+.submenu li {
+    margin-bottom: 15px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.submenu li::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background: black;
+    width: 0px;
+    transition: ease-in-out .4s;
+}
+
+.submenu li:hover::after {
+    width: 100%;
+}
+
 ul li {
     font-family: 'Spartan';
-    font-weight:700;
-    color:black;
+    font-weight: 600;
+    color: black;
 }
-.menu_link{
-    max-width: 500px;
-    width: 100%;
-    margin: 0px 35px;
-}
-.menu_toggle_link{
-    max-width: 500px;
-    width: 100%;
-    margin: 0px 35px;
-}
-.menu_link li a, .menu_toggle_link li a{
 
-    color:black;
+.menu_link {
+    max-width: max-content;
+    width: 100%;
+    margin: 0px 35px;
+}
+
+.menu_link>li {
+    margin-right: 30px;
+}
+
+.menu_toggle_link {
+    max-width: 500px;
+    width: 100%;
+    margin: 0px 35px;
+}
+
+.menu_link li a,
+.menu_toggle_link li a {
+    color: black;
     text-align: left;
 }
 
-
-.search_container input{
-    border-radius: none;
-    border:none;
+div.search_container input {
+    border-radius: 0px;
     border-bottom: 1px solid black;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+}
 
-}
 .search_container::before {
-  content:url(../../assets/img/search.png);
-  display: block;
-  height: 22px;
-  width:22px;
-  position: absolute;
-  margin-right: 3px;
-  z-index: 9;
-  margin-top: 5px;
-  right:0;
+    content: url(../../assets/img/search.png);
+    display: block;
+    height: 22px;
+    width: 22px;
+    position: absolute;
+    margin-right: 3px;
+    z-index: 9;
+    margin-top: 5px;
+    right: 0;
 }
-.toggle_btn{
-    color:black;
+
+.toggle_btn {
+    color: black;
 }
-.close_btn{
+
+.close_btn {
     position: absolute;
     top: 0;
     left: 15px;
     opacity: 1;
     color: black;
-    cursor:pointer;
+    cursor: pointer;
+}
+
+.header_container {
+    height: 100px;
+}
+
+.header_container a, .sidebar a {
+    text-decoration: none;
 }

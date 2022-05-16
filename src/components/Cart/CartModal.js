@@ -7,8 +7,8 @@ const DarkBackground = (props) => {
 };
 const ItemsOverlay = (props) => {
     return <Fragment>
-        <div className={classes.overlay_container}>
-            <div className={classes.cart_overlay}>{props.children}</div>
+        <div id="overlay_container" className={classes.overlay_container}>
+            <div className={`${classes.cart_overlay} p-sm-5 p-3`}>{props.children}</div>
         </div>
 
     </Fragment>;

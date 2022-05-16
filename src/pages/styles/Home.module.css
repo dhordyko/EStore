@@ -1,6 +1,11 @@
-.carouse_category_container{
+.carouse_category_container {
     margin-top: 100px;
 }
-.carouse_category_container button{
-    top:0;
+
+.carouse_category_container_1 {
+    margin-top: 60px;
+}
+
+.carouse_category_container button {
+    top: 0;
 }

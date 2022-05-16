@@ -1,8 +1,10 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import Slider from "react-slick";
-import classes from './CategoryCarousel.module.css'
-import "./CategoryCarousel.css"
+import classes from './CategoryCarousel.module.css';
+import useMediaQuery from '@mui/material/useMediaQuery';
 const CategoryCarousel = () => {
+  const lgMediaQuery = useMediaQuery('(min-width:992px)');
+  const smMediaQuery = useMediaQuery('(max-width:600px)');
   const [data, setData] = useState([]);
   var settings = {
     dots: true,
@@ -34,13 +36,21 @@ const CategoryCarousel = () => {
   return (
     <Fragment>
       <h3 className={classes.header_title}>Produkty według kategorii</h3>
-      <Slider {...settings} arrows="true" dots="false" rows={1} slidesPerRow={4} height={400} className={classes.slider_container}>
+      <Slider {...settings}
+        arrows="true"
+        dots="false"
+        rows={1}
+        slidesPerRow={4}
+        height={400}
+        className={[classes.slider_container, smMediaQuery ? classes.category_slider : '']}
+        style={{ marginBottom: lgMediaQuery ? '100px' : '0px' }}
+      >
         {
           data && data.length > 0 && data.map((item) =>
 
 
-            <div className="slider-outer-container "  >
-              <img src={item.imageSrc} />
+            <div key={item.id} className={`slider-outer-container ${smMediaQuery ? 'w-100' : 'w-25'}`}  >
+              <img src={item.imageSrc} className="img-fluid" />
 
             </div>)
 

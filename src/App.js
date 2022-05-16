@@ -8,7 +8,7 @@ import Layout from './components/hoc/Layout';
 import { useDispatch } from 'react-redux';
 import { fetchBlogData } from './store/redux/slice-http';
 import ProductDescription from './components/Product/ProductDescription';
-import Products from './pages/Products'
+import Products from './pages/Products';
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {

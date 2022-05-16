@@ -1,60 +1,78 @@
-.slider-outer-container{
+.slider-outer-container {
     background-repeat: no-repeat;
     background-size: cover;
 }
-.slider_container{
+
+@media screen and (max-width:768px) {
+    div.slider_container {
+        padding-left: 0px;
+    }
+}
+
+.slider_container {
     height: 790px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 100% 40%;
-    padding-left:10vw;
+    padding-left: 10vw;
 }
-@media(max-width:450px){
-    .slider_container{
-   
-        padding-left:5vw;
-    } 
+
+@media(max-width:450px) {
+    .slider_container {
+
+        padding-left: 5vw;
+    }
 }
-.slider_title{
+
+.slider_title {
     font-family: 'DM Serif Display';
-    font-size:64px;
-    font-weight:bold;
-    margin-bottom:50px;
+    font-size: 4.4em;
+    font-weight: bold;
+    margin-bottom: 50px;
 }
-.slide_dscr{
-    text-align:left;
+
+.slide_dscr {
+    text-align: left;
     font-family: 'Spartan';
     font-size: 18px;
-    font-weight:500;
-    display:flex;
-    flex-wrap:wrap;
-    width:350px;
-    margin-bottom:30px;
+    font-weight: 500;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 350px;
+    width: 100%;
+    margin-bottom: 30px;
     line-height: 30px;
 }
-.slider_btn{
-    margin-top:30px;
-    font-size:18px;
+
+.slider_btn {
+    margin-top: 30px;
+    font-size: 18px;
     font-family: 'Spartan';
-    padding:15px 67px;
-    text-decoration:none;
-    border:1px solid black;
-    color:black;
+    text-decoration: none;
+    border: 1px solid black;
+    color: black;
     width: auto;
     max-width: 250px;
-    cursor:pointer;
+    cursor: pointer;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.slider_btn:hover{
-background:black;
-color:white;
+
+.slider_btn:hover {
+    background: black;
+    color: white;
 }
-.slide_number{
-    font-size:35px;
+
+.slide_number {
+    font-size: 35px;
 
 }
-.slide_number span{
-    font-size:45px;
-    font-weight:700;
+
+.slide_number span {
+    font-size: 45px;
+    font-weight: 700;
     font-family: 'Spartan';
-    margin:0px 5px;
+    margin: 0px 5px;
 }

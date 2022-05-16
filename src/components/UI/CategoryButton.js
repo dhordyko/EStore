@@ -11,7 +11,7 @@ const CategoryButton = (props) => {
         dispatch(blogActions.sortBlogListByCategory(data))
     }
     return (
-        <React.Fragment><a className={classes.button} onClick={dataHandler}>{props.category}</a></React.Fragment>
+        <React.Fragment><a className={`mb-3 ${classes.button}`} onClick={dataHandler}>{props.category}</a></React.Fragment>
     )
 }
 export default CategoryButton

@@ -2,15 +2,17 @@ import { Fragment, useEffect, useState } from 'react'
 import HomeCarousel from '../components/Carousel/Carousel/Carousel';
 import CategoryCarousel from '../components/Carousel/CategoryCarousel/CategoryCarousel';
 import HoulCarousel from '../components/Carousel/HoulCaorusel/HoulCarousel';
-import { ProductList } from '../components/elements/mist';
 import { Banner } from '../components/elements/mist'
 import classes from './styles/Home.module.css'
 import img1 from '../banner-imgs/1.png';
 import img2 from '../banner-imgs/5.png';
-import Sale from '../pages/Sale';
-import { Link } from 'react-router-dom'
 import { useSendRequest } from '../hooks/use-http';
 import styled from "styled-components";
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { Link } from 'react-router-dom';
+import { ProductList } from '../components/elements/mist';
+import Sale from '../pages/Sale';
+
 const CategoryCard = styled.img`
         &{
             display:block;
@@ -18,7 +20,7 @@ const CategoryCard = styled.img`
 
         }
 `
-const categoryList = [
+export const categoryList = [
     { name: 'decor', img: '/img/category/decor.png' },
     { name: 'glass', img: '/img/category/glass.png' },
     { name: 'cup', img: '/img/category/cup.png' },
@@ -34,7 +36,7 @@ const Home = () => {
         url: '/data/ProductsHome.json'
     }
     const data = useSendRequest(requestConfig);
-
+    const smMediaQuery = useMediaQuery('(max-width:500px)');
     useEffect(() => {
         setList(data.data);
     }, [data.data])
@@ -42,7 +44,7 @@ const Home = () => {
     return (
         <Fragment>
             <HomeCarousel />
-            <div className={`container ${classes.carouse_category_container}`} >
+            <div className={`container-md container-fluid ${classes.carouse_category_container}`} >
                 <div className="row">
 
                     <div className="col-md-12">
@@ -50,7 +52,19 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className={`container ${classes.carouse_category_container}`} >
+            <Banner
+
+                title={'Dodatki w formie'}
+                color={'white'}
+                background={'#679267'}
+                text={`Odkryj kolekcję wazonów, które gustownie wypełnią 
+                Twoją przestrzeń, niezależnie od tego czy będą puste czy pełne kwiatów. Wiele form - wiele możliwości.`}
+                img={img1}
+                reverse={false}
+                btn_color={'rgba(255,255,255,.7)'}
+                weight={100}
+            />
+            <div className={`container ${classes.carouse_category_container} pt-sm-3 pt-0 mt-5 `} >
                 <div className="row">
                     <div className="col-md-12">
                         <HoulCarousel />
@@ -74,22 +88,6 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-
-
-            <Banner
-
-                title={'Dodatki w formie'}
-                color={'white'}
-                background={'#679267'}
-                text={`Odkryj kolekcję wazonów, które gustownie wypełnią 
-                            Twoją przestrzeń, niezależnie od tego czy będą puste czy pełne kwiatów. Wiele form - wiele możliwości.`}
-                img={img1}
-                reverse={false}
-                btn_color={'rgba(255,255,255,.7)'}
-                weight={100}
-            />
-
-
             <Banner
                 title={'Wysmakowane'}
                 color={'black'}

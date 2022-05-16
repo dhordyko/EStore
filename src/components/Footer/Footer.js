@@ -10,11 +10,11 @@ import mastercard from '../../assets/img/mastercard.png';
 import classes from './Footer.module.css'
 const Footer = () => {
     return (
-        <footer>
-            <div className={`container-fluid p-0 ${classes.footer} d-flex flex-column justify-content-between`}>
+        <footer className='px-xl-5 px-3 py-5'>
+            <div className={`container-fluid h-100 p-0 ${classes.footer} d-flex flex-column justify-content-between`}>
                 <div className="row">
-                    <div className="col-md-2"><img src={mainLogo} alt="" /></div>
-                    <div className="col-md-2">
+                    <div className="col-xl-2 col-12 mb-5 pb-3"><img src={mainLogo} alt="" /></div>
+                    <div className="col-xl-2 col-md-4 mb-3">
                         <ul>
                             <li><a href="#">O Gustlo</a></li>
                             <li><a href="#">Warunki ogólne</a></li>
@@ -25,7 +25,7 @@ const Footer = () => {
                             <li><a href="#">Kontakt</a></li>
                         </ul>
                     </div>
-                    <div className="col-md-2">
+                    <div className="col-xl-2  col-md-4 col mb-3">
                         <ul>
                             <li><a href="#">Moje strony</a></li>
                             <li><a href="#">Moje konto</a></li>
@@ -34,7 +34,7 @@ const Footer = () => {
                             <li><a href="#"> Moje oferty</a></li>
                         </ul>
                     </div>
-                    <div className="col-md-2">
+                    <div className="col-xl-2  col-md-4 col mb-3">
                         <ul className={classes.contact_column}>
                             <li>Masz pytania? Skontaktuj się!</li>
                             <li><span><img src={plane} alt='' /></span><a href="mailto:kontakt@gustlo.pl"></a>kontakt@gustlo.pl</li>
@@ -42,10 +42,10 @@ const Footer = () => {
 
                         </ul>
                     </div>
-                    <div className="col-md-4 last-column">
+                    <div className="col-xl-4 col-12 last-column my-4">
                         <ul>
                             <li>Gustlo - Wnętrze ze smakiem</li>
-                            <li>Wierzymy, że każde wnętrze ma w sobie potencjał,
+                            <li className='pe-xl-5 w-100 mw-75'>Wierzymy, że każde wnętrze ma w sobie potencjał,
                                 który można wydobyć gustownymi dodatkami.
                                 W naszym sklepie online znajdziesz całą gamę takich przedmiotów:
                                 od minimalistycznych kubków, przez kieliszki w stylu glamour,
@@ -54,11 +54,11 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="row text-ceter">
-                    <ul className='w-50 m-auto d-flex justify-content-evenly'>
+                    <ul className='w-50 m-auto d-flex flex-column flex-sm-row justify-content-evenly'>
 
-                        <li><img src={Przelewy24_logo} /></li>
-                        <li><img src={paypal} /></li>
-                        <li><img src={mastercard} /></li>
+                        <li className='mx-3'><img src={Przelewy24_logo} /></li>
+                        <li className='mx-3'><img src={paypal} /></li>
+                        <li className='mx-3'><img src={mastercard} /></li>
                     </ul>
                 </div>
             </div>

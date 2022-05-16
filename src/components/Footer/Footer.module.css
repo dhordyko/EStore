@@ -1,6 +1,6 @@
 footer {
-    padding: 70px 60px;
     background-color: #E1CDB9;
+    margin-top: 100px;
 }
 
 .footer {
@@ -42,9 +42,15 @@ footer .footer ul li {
     font-weight: 400;
 }
 
+.contact_column li {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .contact_column li:nth-of-type(2)>span,
 .contact_column li:nth-of-type(3)>span {
-    margin-right: 30px;
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 .contact_column li:nth-of-type(2) {

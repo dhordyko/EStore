@@ -89,7 +89,7 @@ const Products = () => {
             <div className={`container-xxl ${classes.component_container}`}>
 
                 <div className="row">
-                    <div className="col-md-3 pb-5">
+                    <div className="col-lg-3 col-sm-7 col-12 m-auto m-lg-0 pb-5">
                         <div className={classes.filter_container_title}>
                             Zastosowane filtry
                         </div>
@@ -153,7 +153,7 @@ const Products = () => {
                         })}
 
                     </div>
-                    <div className="col-md-9">
+                    <div className="col-md-9 m-auto">
 
 
                         {<ProductList data={filtered_products.length != 0 ? filtered_products : products} shuffle={true} slice={products.length}></ProductList>}

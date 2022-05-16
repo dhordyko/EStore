@@ -5,7 +5,7 @@ const BlogItem = (props) => {
     return (
         <React.Fragment>
             <div className={classes.blog_container} >
-                <div className={classes.badge_container}>{props.categories.map(item => <span className={classes.badge}>{item}</span>)}</div>
+                <div className={classes.badge_container}>{props.categories.map(item => <span className={`mb-3 ${classes.badge}`}>{item}</span>)}</div>
                 <span >{ }</span>
                 <img src={props.image} style={{ width: '100%', height: '400px' }} />
                 <div className="my-5">

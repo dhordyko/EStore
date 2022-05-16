@@ -60,6 +60,13 @@ a.btnReturn:hover {
 
 }
 
+@media(max-width:600px) {
+    .cart_list_container {
+        height: 250px;
+    }
+}
+
+
 .cart_text {
     font-style: italic;
     text-align: center;

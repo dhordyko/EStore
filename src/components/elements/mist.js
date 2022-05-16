@@ -6,8 +6,13 @@ import PagePagination from 'react-paginate';
 import { useDispatch } from 'react-redux';
 import { productsActions } from '../../store/redux/slice-products';
 import RemoveIcon from '../UI/RemoveIcon';
-import arrowIcon from '../../assets/img/arrow.png'
+import arrowIcon from '../../assets/img/arrow.png';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 export const Banner = (props) => {
+    const lgMediaQuery = useMediaQuery('(min-width:992px)');
+    const xlMediaQuery = useMediaQuery('(max-width:1200px)');
+    const smMediaQuery = useMediaQuery('(max-width:500px)');
     const CustomColumn = styled.div`
 &{
     display:flex;
@@ -17,14 +22,13 @@ export const Banner = (props) => {
 }
 & h1{
     font-family: 'DM Serif Display', serif;
-    font-size:64px;
-    text-transform:capitalize
+    font-size:4.4em;
+    text-transform:capitalize;
+    word-break:${smMediaQuery ? 'break-all' : 'inherit'};
+    font-size:${xlMediaQuery && !smMediaQuery ? '5vw' : '4.4em'}
+    
 }
-@media(min-width:500px){
-    & .inner-container{
-        width:50%!important;
-    }
-}
+
 & .inner-container{
     width:70%;
 }
@@ -80,8 +84,15 @@ font-weight:${props.weight}
 `
     const BannerContainer = styled.div`
 &{
-display:grid;
-grid-template-columns: 1fr 1fr;
+display:flex;
+flex-direction:${props.reverse ? 'row-reverse' : 'row'}
+}
+& div{
+    ${lgMediaQuery ? 'width:50%!important' : 'width:100%!important'}
+}
+& img{
+   object-fit:none;
+    width:100%;
 }
 `
 
@@ -89,11 +100,11 @@ grid-template-columns: 1fr 1fr;
     return (
         <Fragment>
 
-            <BannerContainer className=" banner-container p-0 m-0 ">
+            <BannerContainer className=" banner-container p-0 m-0 d-flex flex-lg-row flex-column ">
 
-                <CustomColumn className=" py-4" style={{ background: props.background }}>
+                <CustomColumn className="p-lg-0 p-5" style={{ background: props.background }}>
                     <div className='inner-container'>
-                        <h1>{props.title}</h1>
+                        <h1 class="mb-2 d-block w-100">{props.title}</h1>
                         <p>{props.text}</p>
                         <CustomBtn className="p-0"><span>Zobacz</span></CustomBtn>
 
@@ -101,7 +112,7 @@ grid-template-columns: 1fr 1fr;
 
                 </CustomColumn>
                 <div className=" p-0">
-                    <img src={props.img} className="img-fluid" />
+                    <img height="100%" src={props.img} className={lgMediaQuery ? '' : 'img-fluid'} />
                 </div>
 
             </BannerContainer>
@@ -118,7 +129,7 @@ export const ProductList = (props) => {
                         return randomTrueOrFalse ? 1 : -1;
                     }
                     ).slice(0, props.slice ? props.slice : 0).map((item) => (
-                        < div className="col-md-3" >
+                        < div className="col-xxl-3 col-xl-4 col-sm-6" >
 
                             <ProductItem
                                 id={item.id}
@@ -170,7 +181,7 @@ export const BlogList = (props) => {
     const blogsPerVisit = props.data.length == 1 ? props.data : props.data.slice(blogsVisited, blogsVisited + blogsPerPage);
     const pagesAmount = Math.ceil(props.data.length / blogsPerPage);
     const onPageChange = ({ selected }) => {
-        setPageNumber(selected)
+        setPageNumber(selected);
     }
     const PaginationContainer = styled.div`
     &{
@@ -188,8 +199,35 @@ export const BlogList = (props) => {
     }
     & .previous a span {
    font-size:
-
     }
+    & .pagination{
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    }
+    & .pagination .pagination__link{
+        display:inline-flex;
+        align-items:center;
+    }
+    & .pagination .pagination__link span.arrow{
+        font-size:40px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-weight:400;
+        margin:0px 10px;
+    }
+    & .pagination li:not(.next):not(.previous) a
+    {
+       width:30px;
+       height:30px;
+       display:flex;
+       align-items:center;
+       justify-content:center;
+       border:2px solid black;
+    }
+
     `
     return (
         <Fragment>
@@ -214,15 +252,15 @@ export const BlogList = (props) => {
             </div>
             <PaginationContainer>
                 <PagePagination
-                    previousLabel={<><span>&#8249;</span><span>poprzednia</span></>}
-                    nextLabel={<><span>następna</span><span>&#8250;</span></>}
+                    previousLabel={<><span class='arrow'>&#8249;</span><span>poprzednia</span></>}
+                    nextLabel={<><span>następna</span><span class='arrow'>&#8250;</span></>}
                     pageCount={pagesAmount}
                     onPageChange={onPageChange}
                     containerClassName={"pagination"}
                     previousLinkClassName={"pagination__link"}
                     nextLinkClassName={"pagination__link"}
-                    disabledClassName={"pagination__link--disabled"}
-                    activeClassName={"pagination__link--active"}
+                    activeClassName={"active"}
+                    forcePage={pageNumber}
                 />
             </PaginationContainer>
 
