@@ -153,7 +153,7 @@ const Products = () => {
                         })}
 
                     </div>
-                    <div className="col-md-9 m-auto">
+                    <div className="col-md-9 mx-auto">
 
 
                         {<ProductList data={filtered_products.length != 0 ? filtered_products : products} shuffle={true} slice={products.length}></ProductList>}

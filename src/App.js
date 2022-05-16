@@ -21,7 +21,7 @@ function App() {
           <Route element={<Home />} path="/" />
           <Route element={<Blog />} path="/blog" />
           <Route element={<ProductDescription />} path="/products/:category/:id" exact />
-          <Route element={<Products />} path="/products/:category" exact />
+          <Route element={<Products />} path="/products/:category" />
         </Routes>
       </Layout>
     </CartCtxProvider>
