@@ -9,14 +9,12 @@ import 'bootstrap/dist/js/bootstrap.min.js'
 import { BrowserRouter } from 'react-router-dom';
 import store from './store/redux'
 import { Provider } from 'react-redux';
-import CssBaseline from '@mui/material/CssBaseline';
+
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-
-        <CssBaseline />
         <App />
 
       </BrowserRouter>
