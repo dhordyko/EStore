@@ -4,11 +4,9 @@ import { ProductList, FilterTag, Banner } from "../components/elements/mist";
 import { useSendRequest } from '../hooks/use-http';
 import { useDispatch, useSelector } from 'react-redux'
 import { productsActions } from '../store/redux/slice-products';
-import Slider from '@mui/material/Slider';
-import classes from './styles/Products.module.css'
-
+import classes from './styles/Products.module.css';
+import MultiRangeSlider from '../components/UI/MultiRangeSlider'
 import { GLASS, DECOR, CUP, PLATE, LINEN, BOTTLE } from '../globes/filters'
-import { IndeterminateCheckBoxRounded } from '@mui/icons-material';
 const Products = () => {
     const dispatch = useDispatch();
     const params = useParams();
@@ -17,7 +15,7 @@ const Products = () => {
     const sliderValues = useSelector(state => state.products.sliderValues);
     const filtersActive = useSelector(state => state.products.activeFilter);
 
-    const [category, setCategory] = useState('')
+    const [category, setCategory] = useState('');
     const requestConfig = {
         url: '/data/ProductsHome.json',
         category: params.category
@@ -43,14 +41,15 @@ const Products = () => {
         }
     }
     const filters = glassFilters(params.category);
-    const [value, setValue] = useState(sliderValues);
+    const [value, setValue] = useState(0);
 
     useEffect(() => {
         dispatch(productsActions.displayProducts(data.data))
     }, [data.data])
 
-    const onCahngeHandler = (event, newValue) => {
-        setValue(newValue)
+    const handleChange = (event, newValue) => {
+        console.log(newValue)
+        //setValue(newValue)
     }
     const onMouseHandler = () => {
         dispatch(productsActions.sliderFilter(value))
@@ -69,6 +68,10 @@ const Products = () => {
         'plate': "zastawa",
         'bottle': "przechowywanie",
     }
+
+
+
+
 
 
     return (
@@ -98,15 +101,11 @@ const Products = () => {
                         ))}
                         {filters.length > 0 && filters.map((item) => {
 
-
-
-
                             if (item[0] === 'price') {
                                 dispatch(productsActions.sliderDefault(item[1]))
+
                             }
-                            const fromatHandler = (value1) => {
-                                return `${value1}zł`;
-                            }
+
                             const FilterHandler = (e) => {
                                 let filter = e.target.innerText;
                                 let category = e.target.getAttribute('data-filter');
@@ -126,18 +125,10 @@ const Products = () => {
                                             <div className="accordion-body">
 
                                                 {item[0] === 'price' ?
-                                                    <Slider
-
-                                                        value={value}
-                                                        min={item[1][0]}
-                                                        max={item[1][1]}
-                                                        step={10}
-                                                        onChange={onCahngeHandler}
-                                                        onMouseUp={onMouseHandler}
-                                                        valueLabelFormat={fromatHandler}
-                                                        valueLabelDisplay="auto"
-                                                        className={classes.price_slider}
-
+                                                    <MultiRangeSlider
+                                                        min={0}
+                                                        max={1000}
+                                                        onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)}
                                                     />
                                                     : <ul className={classes.filter_list}>{item[1].map((element) => <li className={classes.filter_item}><a data-filter={item[0]} onClick={FilterHandler}>{element}</a></li>
                                                     )}</ul>}

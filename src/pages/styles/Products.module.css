@@ -70,3 +70,10 @@ div[id*="Accordion-"].accordion .price_slider span[data-index] {
     width: 18px;
     height: 18px;
 }
+
+.slider_thumb_container {
+    display: block;
+    height: 4px;
+    width: 100%;
+    background: red;
+}
