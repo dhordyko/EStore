@@ -40,16 +40,18 @@ const Products = () => {
 
         }
     }
-    const filters = glassFilters(params.category);
-    const [value, setValue] = useState(0);
-
     useEffect(() => {
         dispatch(productsActions.displayProducts(data.data))
     }, [data.data])
+    const filters = glassFilters(params.category);
+    const [value, setValue] = useState([]);
 
-    const handleChange = (event, newValue) => {
-        console.log(newValue)
-        //setValue(newValue)
+
+
+    const handleChange = ({ min, max }) => {
+        setValue([min, max]);
+
+
     }
     const onMouseHandler = () => {
         dispatch(productsActions.sliderFilter(value))
@@ -126,9 +128,10 @@ const Products = () => {
 
                                                 {item[0] === 'price' ?
                                                     <MultiRangeSlider
-                                                        min={0}
-                                                        max={1000}
+                                                        min={item[1][0]}
+                                                        max={item[1][1]}
                                                         onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)}
+
                                                     />
                                                     : <ul className={classes.filter_list}>{item[1].map((element) => <li className={classes.filter_item}><a data-filter={item[0]} onClick={FilterHandler}>{element}</a></li>
                                                     )}</ul>}

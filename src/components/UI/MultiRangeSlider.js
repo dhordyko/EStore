@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
-import './Slider.css'
+import { Container } from '../elements/mist'
+
 const MultiRangeSlider = ({ min, max, onChange }) => {
     const [minVal, setMinVal] = useState(min);
     const [maxVal, setMaxVal] = useState(max);
@@ -41,7 +42,7 @@ const MultiRangeSlider = ({ min, max, onChange }) => {
     }, [minVal, maxVal, onChange]);
 
     return (
-        <div className="container">
+        <Container className="container">
             <input
                 type="range"
                 min={min}
@@ -74,7 +75,7 @@ const MultiRangeSlider = ({ min, max, onChange }) => {
                 <div className="slider__left-value">{minVal}</div>
                 <div className="slider__right-value">{maxVal}</div>
             </div>
-        </div>
+        </Container>
     );
 };
 
