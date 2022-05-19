@@ -5,7 +5,7 @@ import { useSendRequest } from '../hooks/use-http';
 import { useDispatch, useSelector } from 'react-redux'
 import { productsActions } from '../store/redux/slice-products';
 import classes from './styles/Products.module.css';
-import MultiRangeSlider from '../components/UI/MultiRangeSlider'
+import Slider from '@mui/material/Slider';
 import { GLASS, DECOR, CUP, PLATE, LINEN, BOTTLE } from '../globes/filters'
 const Products = () => {
     const dispatch = useDispatch();
@@ -14,7 +14,11 @@ const Products = () => {
     const filtered_products = useSelector(state => state.products.filteredList);
     const sliderValues = useSelector(state => state.products.sliderValues);
     const filtersActive = useSelector(state => state.products.activeFilter);
+    const [value, setValue] = useState([20, 37]);
 
+    const handleChange = (newValue) => {
+      setValue(newValue);
+    };
     const [category, setCategory] = useState('');
     const requestConfig = {
         url: '/data/ProductsHome.json',
@@ -44,15 +48,7 @@ const Products = () => {
         dispatch(productsActions.displayProducts(data.data))
     }, [data.data])
     const filters = glassFilters(params.category);
-    const [value, setValue] = useState([]);
-
-
-
-    const handleChange = ({ min, max }) => {
-        setValue([min, max]);
-
-
-    }
+  
     const onMouseHandler = () => {
         dispatch(productsActions.sliderFilter(value))
     }
@@ -70,10 +66,6 @@ const Products = () => {
         'plate': "zastawa",
         'bottle': "przechowywanie",
     }
-
-
-
-
 
 
     return (
@@ -114,6 +106,9 @@ const Products = () => {
                                 setCategory(category)
                                 dispatch(productsActions.filterApplied({ category: category, filter: filter }))
                             }
+                            function valuetext(value) {
+                                return `${value}°C`;
+                              }
                             return (
 
                                 <div className={classes.accordion} id={`Accordion-${item[0]}`}>
@@ -127,12 +122,14 @@ const Products = () => {
                                             <div className="accordion-body">
 
                                                 {item[0] === 'price' ?
-                                                    <MultiRangeSlider
-                                                        min={item[1][0]}
-                                                        max={item[1][1]}
-                                                        onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)}
-
-                                                    />
+                                                <Slider
+                                                getAriaLabel={() => 'Temperature range'}
+                                                value={value}
+                                                onChange={handleChange}
+                                                valueLabelDisplay="auto"
+                                                getAriaValueText={valuetext}
+                                              />
+                                       
                                                     : <ul className={classes.filter_list}>{item[1].map((element) => <li className={classes.filter_item}><a data-filter={item[0]} onClick={FilterHandler}>{element}</a></li>
                                                     )}</ul>}
 
