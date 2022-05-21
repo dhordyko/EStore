@@ -5,11 +5,11 @@
 
 .option_img_container ul li {
     cursor: pointer;
+    display: inline-flex;
+    flex-direction: column;
 }
 
-.main_image_container {
-    margin-left: 20px;
-}
+.main_image_container {}
 
 .main_image_container img {
     max-width: 100%;
@@ -20,7 +20,7 @@
 .product_descr_container {
     border: 1px solid black;
     padding: 20px;
-    display: flex;
+
     margin: 50px 0px;
 }
 
@@ -36,6 +36,7 @@
     border-radius: 0px;
     margin: 0px 30px;
     color: black;
+    max-width: 270px;
 }
 
 .tab_links_container .tab_links {
@@ -123,9 +124,6 @@ div[id="product-description"] .green_badge {
     height: 270px;
 }
 
-.option_img_container ul li {
-    margin-bottom: 10px;
-}
 
 .option_img_container ul li:nth-last-of-type(1) {
     margin-bottom: 0px !important;

@@ -20,9 +20,11 @@ export const useHttp = () => {
 }
 
 export const useSendRequest = (requestConfig) => {
+
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     const [data, setData] = useState([]);
+
     const SendRequest = async () => {
         setIsLoading(true);
         setError(null);
@@ -58,7 +60,7 @@ export const useSendRequest = (requestConfig) => {
             setData(result)
         });
 
-    }, [])
+    }, [requestConfig.category])
 
     return {
         isLoading,

@@ -61,19 +61,3 @@ div[id*="Accordion-"].accordion ul {
     font-weight: 500;
     cursor: pointer;
 }
-
-div[id*="Accordion-"].accordion .price_slider {
-    color: black;
-}
-
-div[id*="Accordion-"].accordion .price_slider span[data-index] {
-    width: 18px;
-    height: 18px;
-}
-
-.slider_thumb_container {
-    display: block;
-    height: 4px;
-    width: 100%;
-    background: red;
-}

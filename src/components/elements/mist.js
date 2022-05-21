@@ -8,24 +8,19 @@ import { productsActions } from '../../store/redux/slice-products';
 import RemoveIcon from '../UI/RemoveIcon';
 import arrowIcon from '../../assets/img/arrow.png';
 import useMediaQuery from '@mui/material/useMediaQuery';
-
-export const Banner = (props) => {
-    const lgMediaQuery = useMediaQuery('(min-width:992px)');
-    const xlMediaQuery = useMediaQuery('(max-width:1200px)');
-    const smMediaQuery = useMediaQuery('(max-width:500px)');
-    const CustomColumn = styled.div`
+const CustomColumn = styled.div`
 &{
     display:flex;
     justify-content:center;
     align-items:center;
-    color:${props.color};
+    color:${(props) => props.color};
 }
 & h1{
     font-family: 'DM Serif Display', serif;
     font-size:4.4em;
     text-transform:capitalize;
-    word-break:${smMediaQuery ? 'break-all' : 'inherit'};
-    font-size:${xlMediaQuery && !smMediaQuery ? '5vw' : '4.4em'}
+    word-break:${(props) => props.smMediaQuery ? 'break-all' : 'inherit'};
+    font-size:${(props) => props.xlMediaQuery && !props.smMediaQuery ? '5vw' : '4.4em'}
     
 }
 
@@ -35,19 +30,78 @@ export const Banner = (props) => {
 & p {
     font-family: 'Spartan';
     line-height:28px;
-    font-weight:${props.weight};
+    font-weight:${(props) => props.weight};
+}
+`;
+const BannerContainer = styled.div`
+&{
+display:flex;
+flex-direction:${(props) => props.reverse ? 'row-reverse' : 'row'}
+}
+& div{
+    ${(props) => props.lgMediaQuery ? 'width:50%!important' : 'width:100%!important'}
+}
+& img{
+   object-fit:none;
+    width:100%;
 }
 `
-    const CustomBtn = styled.button`
+const PaginationContainer = styled.div`
+&{
+    text-align:center;
+    font-family:'Spartan';
+}
+& .pagination{
+    display:inline-flex!important;
+    align-items:center;
+}
+& .previous a, & .next a {
+    color:black;
+    text-decoration:none;
+
+}
+& .previous a span {
+font-size:
+}
+& .pagination{
+max-width: 500px;
+width: 100%;
+display: flex;
+justify-content: space-between;
+}
+& .pagination .pagination__link{
+    display:inline-flex;
+    align-items:center;
+}
+& .pagination .pagination__link span.arrow{
+    font-size:40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:400;
+    margin:0px 10px;
+}
+& .pagination li:not(.next):not(.previous) a
+{
+   width:30px;
+   height:30px;
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   border:2px solid black;
+}
+
+`
+const CustomBtn = styled.button`
 &{
     display: inline-block;
-    border: 1px solid  ${props.color};
-    color: ${props.color};
+    border: 1px solid  ${(props) => props.color};
+    color: ${(props) => props.color};
     width: 170px;
     border-radius: 0px;
     color: white;
     font-family: 'Spartan';
-    font-weight: ${props.weight};
+    font-weight: ${(props) => props.weight};
     text-transform: capitalize;
     background:transparent;
     height:40px;
@@ -59,7 +113,7 @@ export const Banner = (props) => {
         width: 0px;
         opacity:0;
         height: 40px;
-        background: ${props.btn_color};
+        background: ${(props) => props.btn_color};
         display: block;
         padding: 0px;
         position: absolute;
@@ -67,8 +121,8 @@ export const Banner = (props) => {
         transition:ease-out .4s;      
 }
 & span{
-color: ${props.color};
-font-weight:${props.weight}
+color: ${(props) => props.color};
+font-weight:${(props) => props.weight}
 }
 &:hover::before{
     width:170px;
@@ -82,31 +136,40 @@ font-weight:${props.weight}
     font-weight:400;
 }
 `
-    const BannerContainer = styled.div`
-&{
-display:flex;
-flex-direction:${props.reverse ? 'row-reverse' : 'row'}
-}
-& div{
-    ${lgMediaQuery ? 'width:50%!important' : 'width:100%!important'}
-}
-& img{
-   object-fit:none;
-    width:100%;
-}
-`
 
-
+export const Banner = (props) => {
+    const lgMediaQuery = useMediaQuery('(min-width:992px)');
+    const xlMediaQuery = useMediaQuery('(max-width:1200px)');
+    const smMediaQuery = useMediaQuery('(max-width:500px)');
     return (
         <Fragment>
 
-            <BannerContainer className=" banner-container p-0 m-0 d-flex flex-lg-row flex-column ">
+            <BannerContainer
+                className=" banner-container p-0 m-0 d-flex flex-lg-row flex-column "
+                lgMediaQuery={lgMediaQuery}
+                xlMediaQuery={xlMediaQuery}
+                smMediaQuery={smMediaQuery}
+                reverse={props.reverse}
+            >
 
-                <CustomColumn className="p-lg-0 p-5" style={{ background: props.background }}>
+                <CustomColumn
+                    className="p-lg-0 p-5"
+                    style={{ background: props.background }}
+                    color={props.color}
+                    weight={props.weight}
+                    lgMediaQuery={lgMediaQuery}
+                    xlMediaQuery={xlMediaQuery}
+                    smMediaQuery={smMediaQuery}
+                >
                     <div className='inner-container'>
                         <h1 class="mb-2 d-block w-100">{props.title}</h1>
                         <p>{props.text}</p>
-                        <CustomBtn className="p-0"><span>Zobacz</span></CustomBtn>
+                        <CustomBtn
+                            className="p-0"
+                            color={props.color}
+                            weight={props.weight}
+                            btn_color={props.btn_color}
+                        ><span>Zobacz</span></CustomBtn>
 
                     </div>
 
@@ -128,8 +191,8 @@ export const ProductList = (props) => {
                         const randomTrueOrFalse = Math.random() > 0.5;
                         return randomTrueOrFalse ? 1 : -1;
                     }
-                    ).slice(0, props.slice ? props.slice : 0).map((item) => (
-                        < div className="col-xxl-3 col-xl-4 col-sm-6" >
+                    ).slice(0, props.slice ? props.slice : 0).map((item, index) => (
+                        < div className="col-xxl-3 col-xl-4 col-sm-6" key={index}>
 
                             <ProductItem
                                 id={item.id}
@@ -149,7 +212,7 @@ export const ProductList = (props) => {
 
                     {props.data && props.data.length > 0 && !props.shuffle && props.data.map((item) =>
 
-                        < div className="col-md-3" >
+                        < div className="col-xl-3 col-md-4 col-12" >
 
                             <ProductItem
                                 id={item.id}
@@ -184,52 +247,7 @@ export const BlogList = (props) => {
     const onPageChange = ({ selected }) => {
         setPageNumber(selected);
     }
-    const PaginationContainer = styled.div`
-    &{
-        text-align:center;
-        font-family:'Spartan';
-    }
-    & .pagination{
-        display:inline-flex!important;
-        align-items:center;
-    }
-    & .previous a, & .next a {
-        color:black;
-        text-decoration:none;
 
-    }
-    & .previous a span {
-   font-size:
-    }
-    & .pagination{
-    max-width: 500px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    }
-    & .pagination .pagination__link{
-        display:inline-flex;
-        align-items:center;
-    }
-    & .pagination .pagination__link span.arrow{
-        font-size:40px;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        font-weight:400;
-        margin:0px 10px;
-    }
-    & .pagination li:not(.next):not(.previous) a
-    {
-       width:30px;
-       height:30px;
-       display:flex;
-       align-items:center;
-       justify-content:center;
-       border:2px solid black;
-    }
-
-    `
     return (
         <Fragment>
             <div className="container">
@@ -287,112 +305,6 @@ export const FilterTag = (props) => {
     )
 }
 
-const Container = styled.div`
-& {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.slider {
-    position: relative;
-    width: 200px;
-}
-
-.slider__track,
-.slider__range,
-.slider__left-value,
-.slider__right-value {
-    position: absolute;
-}
-
-.slider__track,
-.slider__range {
-    border-radius: 3px;
-    height: 5px;
-}
-
-.slider__track {
-    background-color: #ced4da;
-    width: 100%;
-    z-index: 1;
-}
-
-.slider__range {
-    background-color: #9fe5e1;
-    z-index: 2;
-}
-
-.slider__left-value,
-.slider__right-value {
-    color: #dee2e6;
-    font-size: 12px;
-    margin-top: 20px;
-}
-
-.slider__left-value {
-    left: 6px;
-}
-
-.slider__right-value {
-    right: -4px;
-}
-
-/* Removing the default appearance */
-.thumb,
-.thumb::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.thumb {
-    pointer-events: none;
-    position: absolute;
-    height: 0;
-    width: 200px;
-    outline: none;
-}
-
-.thumb--left {
-    z-index: 3;
-}
-
-.thumb--right {
-    z-index: 4;
-}
-
-/* For Chrome browsers */
-.thumb::-webkit-slider-thumb {
-    background-color: #f1f5f7;
-    border: none;
-    border-radius: 50%;
-    box-shadow: 0 0 1px 1px #ced4da;
-    cursor: pointer;
-    height: 18px;
-    width: 18px;
-    margin-top: 4px;
-    pointer-events: all;
-    position: relative;
-}
-
-/* For Firefox browsers */
-.thumb::-moz-range-thumb {
-    background-color: #f1f5f7;
-    border: none;
-    border-radius: 50%;
-    box-shadow: 0 0 1px 1px #ced4da;
-    cursor: pointer;
-    height: 18px;
-    width: 18px;
-    margin-top: 4px;
-    pointer-events: all;
-    position: relative;
-}
-
-
-`;
-export { Container };
 
 
 

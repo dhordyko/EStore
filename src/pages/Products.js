@@ -1,12 +1,52 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom';
 import { ProductList, FilterTag, Banner } from "../components/elements/mist";
 import { useSendRequest } from '../hooks/use-http';
 import { useDispatch, useSelector } from 'react-redux'
 import { productsActions } from '../store/redux/slice-products';
 import classes from './styles/Products.module.css';
+import { GLASS, DECOR, CUP, PLATE, LINEN, BOTTLE } from '../globes/filters';
 import Slider from '@mui/material/Slider';
-import { GLASS, DECOR, CUP, PLATE, LINEN, BOTTLE } from '../globes/filters'
+import { styled } from '@mui/material/styles';
+
+const PrettoSlider = styled(Slider)({
+    color: '#52af77',
+    height: 8,
+    '& .MuiSlider-track': {
+        border: 'none',
+    },
+    '& .MuiSlider-thumb': {
+        height: 24,
+        width: 24,
+        backgroundColor: '#fff',
+        border: '2px solid currentColor',
+        '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
+            boxShadow: 'inherit',
+        },
+        '&:before': {
+            display: 'none',
+        },
+    },
+    '& .MuiSlider-valueLabel': {
+        lineHeight: 1.2,
+        fontSize: 12,
+        background: 'unset',
+        padding: 0,
+        width: 32,
+        height: 32,
+        borderRadius: '50% 50% 50% 0',
+        backgroundColor: '#52af77',
+        transformOrigin: 'bottom left',
+        transform: 'translate(50%, -100%) rotate(-45deg) scale(0)',
+        '&:before': { display: 'none' },
+        '&.MuiSlider-valueLabelOpen': {
+            transform: 'translate(50%, -100%) rotate(-45deg) scale(1)',
+        },
+        '& > *': {
+            transform: 'rotate(45deg)',
+        },
+    },
+});
 const Products = () => {
     const dispatch = useDispatch();
     const params = useParams();
@@ -14,16 +54,14 @@ const Products = () => {
     const filtered_products = useSelector(state => state.products.filteredList);
     const sliderValues = useSelector(state => state.products.sliderValues);
     const filtersActive = useSelector(state => state.products.activeFilter);
-    const [value, setValue] = useState([20, 37]);
 
-    const handleChange = (newValue) => {
-      setValue(newValue);
-    };
+    const [value, setValue] = useState(sliderValues);
     const [category, setCategory] = useState('');
     const requestConfig = {
         url: '/data/ProductsHome.json',
         category: params.category
     }
+
     const data = useSendRequest(requestConfig);
     const glassFilters = (category) => {
         switch (category) {
@@ -46,9 +84,13 @@ const Products = () => {
     }
     useEffect(() => {
         dispatch(productsActions.displayProducts(data.data))
-    }, [data.data])
+    }, [data.data]);
+
+    const onCahngeHandler = (event, newValue) => {
+        setValue(newValue)
+    }
     const filters = glassFilters(params.category);
-  
+
     const onMouseHandler = () => {
         dispatch(productsActions.sliderFilter(value))
     }
@@ -99,6 +141,9 @@ const Products = () => {
                                 dispatch(productsActions.sliderDefault(item[1]))
 
                             }
+                            const fromatHandler = (value1) => {
+                                return `${value1}zł`;
+                            }
 
                             const FilterHandler = (e) => {
                                 let filter = e.target.innerText;
@@ -108,7 +153,7 @@ const Products = () => {
                             }
                             function valuetext(value) {
                                 return `${value}°C`;
-                              }
+                            }
                             return (
 
                                 <div className={classes.accordion} id={`Accordion-${item[0]}`}>
@@ -122,14 +167,20 @@ const Products = () => {
                                             <div className="accordion-body">
 
                                                 {item[0] === 'price' ?
-                                                <Slider
-                                                getAriaLabel={() => 'Temperature range'}
-                                                value={value}
-                                                onChange={handleChange}
-                                                valueLabelDisplay="auto"
-                                                getAriaValueText={valuetext}
-                                              />
-                                       
+                                                    <PrettoSlider
+
+                                                        value={value}
+                                                        min={item[1][0]}
+                                                        max={item[1][1]}
+                                                        step={10}
+                                                        onChange={onCahngeHandler}
+                                                        onMouseUp={onMouseHandler}
+                                                        valueLabelFormat={fromatHandler}
+                                                        valueLabelDisplay="auto"
+                                                        className={classes.price_slider}
+
+                                                    />
+
                                                     : <ul className={classes.filter_list}>{item[1].map((element) => <li className={classes.filter_item}><a data-filter={item[0]} onClick={FilterHandler}>{element}</a></li>
                                                     )}</ul>}
 

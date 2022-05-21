@@ -1,12 +1,9 @@
-import React, { Fragment, useState } from 'react'
-import { styled, alpha } from '@mui/material/styles';
+import React, { Fragment, useState, useContext } from 'react'
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import SideDrawer from '@mui/material/Drawer';
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import IconButton from '@mui/material/IconButton';
 import CartButton from '../Cart/CartBtn';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -25,6 +22,7 @@ const Menu = (props) => {
     const closeStateHandler = () => {
         setOpen(false);
     }
+
     return (
         <Fragment>
             <AppBar position="static" className={`bg-transparent ${classes.header}`}>
@@ -43,7 +41,7 @@ const Menu = (props) => {
                     >
                         <MenuIcon style={{ fontSize: '35px' }} />
                     </IconButton>
-                    <img src={mainLogo} alt="" className="me-auto m-xl-0" />
+                    <Link to={'/'}><img src={mainLogo} alt="" className="me-auto m-xl-0" /></Link>
 
                     <ul id="navbar-nav" className={`navbar-nav flex-row d-xl-flex d-none justify-content-between ${classes.menu_link}`}>
                         <li className="nav-item active" >
@@ -54,9 +52,9 @@ const Menu = (props) => {
                                 onClick={() => { setOpenSubMenu(!openSubMenu) }} href="#" > Kategorije </a>
                             {
                                 openSubMenu && < ul className={classes.submenu} >
-                                    <li > <Link to={'products/decor'}>Dekoracje</Link></li>
-                                    <li ><Link to={'products/glass'}>Szkło</Link></li>
-                                    <li ><Link to={'products/linen'}>Pościel</Link></li>
+                                    <li> <Link to={'products/decor'}>Dekoracje</Link></li>
+                                    <li><Link to={'products/glass'}>Szkło</Link></li>
+                                    <li><Link to={'products/linen'}>Pościel</Link></li>
                                     <li> <Link to={'products/cup'}>Filiżanki</Link></li>
                                     <li> <Link to={'products/plate'}>Talerzy</Link> </li></ul>}
                         </li>
@@ -140,7 +138,7 @@ const Menu = (props) => {
             </SideDrawer>
 
 
-        </Fragment>
+        </Fragment >
     )
 }
 export default Menu;

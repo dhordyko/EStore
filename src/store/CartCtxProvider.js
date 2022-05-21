@@ -6,7 +6,8 @@ const defaultCartState = {
     totalAmount: 0,
     itemsAmount: 0,
     singleItemAmount: 0,
-    itemAddedToCart: false
+    itemAddedToCart: false,
+    renderProducts: false
 }
 const cartReducer = (state, action) => {
     if (action.type === 'ADD') {
@@ -64,6 +65,7 @@ const cartReducer = (state, action) => {
             itemsAmount: itemsAmount
         }
     }
+
 }
 const CartCtxProvider = (props) => {
 
@@ -87,6 +89,7 @@ const CartCtxProvider = (props) => {
     const totalAmountRemoveHandler = (price, amount) => {
         dispatchCartAction({ type: 'TOTALREMOVE', price: price, amount: amount });
     };
+
     const cartContext = {
         items: cartState.items,
         singleItemAmount: cartState.singleItemAmount,
@@ -97,6 +100,7 @@ const CartCtxProvider = (props) => {
         // updateItem: updateItemFromCartHandler,
         updateTotalAmountADD: totalAmountAddHandler,
         updateTotalAmountREMOVE: totalAmountRemoveHandler,
+        renderProducts: cartState.renderProducts
     }
 
     return (
