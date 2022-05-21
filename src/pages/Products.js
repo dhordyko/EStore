@@ -165,7 +165,6 @@ const Products = () => {
                                         </h2>
                                         <div id={`${item[0]}`} className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent={`#Accordion-${item[0]}`}>
                                             <div className="accordion-body">
-
                                                 {item[0] === 'price' ?
                                                     <Slider
 
@@ -176,7 +175,7 @@ const Products = () => {
                                                         onChange={onCahngeHandler}
                                                         onMouseUp={onMouseHandler}
                                                         valueLabelFormat={fromatHandler}
-                                                        valueLabelDisplay="auto"
+
                                                         className={classes.price_slider}
 
                                                     />
