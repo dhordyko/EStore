@@ -14,7 +14,6 @@ const ProductDescription = () => {
     const [product, setProduct] = useState([]);
     const [image, setImage] = useState(null);
     const [tab, setTab] = useState(false);
-    const [productState, setProductState] = useState(false);
     const cartCtx = useContext(cartContext);
     const [itemAddedToCart, setitemAddedToCart] = useState(false);
     useEffect(() => {
